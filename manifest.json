@@ -1,0 +1,29 @@
+{
+    "manifest_version": 2,
+    "name": "Web Security Plugin",
+    "version": "1.0",
+    "description": "Detects third-party connections, browser hijacking, storage, cookies, and fingerprinting.",
+    "permissions": [
+      "webRequest",
+      "webRequestBlocking",
+      "webNavigation",
+      "cookies",
+      "storage",
+      "activeTab",
+      "<all_urls>"
+    ],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": true
+    },
+    "browser_action": {
+      "default_popup": "front.html"
+    },
+    "applications": {
+      "gecko": {
+        "id": "your-extension@example.com",
+        "strict_min_version": "57.0"
+      }
+    }
+  }
+  

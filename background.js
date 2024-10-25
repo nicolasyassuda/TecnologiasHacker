@@ -18,9 +18,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       return true;
     }
   });
-browser.cookies.getAll({}).then((cookies) => {
-    console.log(cookies);
-});
 browser.webNavigation.onCommitted.addListener(function(details) {
     if (details.frameId === 0) {
         originalLocation = details.url;
@@ -33,7 +30,6 @@ browser.webNavigation.onCommitted.addListener(function(details) {
 browser.tabs.onActivated.addListener(function(activeInfo) {
   
     browser.tabs.get(activeInfo.tabId, function(tab) {
-        console.log(tab)
         originalLocation = tab.url;
         browser.cookies.getAll({url: tab.url}).then((_cookies) => {
           cookies = _cookies;
